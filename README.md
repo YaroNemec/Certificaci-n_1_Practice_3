@@ -1,8 +1,3 @@
 Practica 3: Creacion de una WebAPI
 
-Version: O.O 
-
-Creating proyect 
-
-ActualBranch: Master
-Working in develop
+Version: 1.0
