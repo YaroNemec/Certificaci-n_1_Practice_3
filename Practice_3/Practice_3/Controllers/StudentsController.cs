@@ -1,27 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace Practice_3.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/students")]
     public class StudentsController : ControllerBase
     {
-
-        public StudentsController(ILogger<StudentsController> logger)
+        private readonly IConfiguration _config;
+        public StudentsController(IConfiguration config)
         {
+            _config = config;
         }
-
 
         [HttpGet]
         public List<Student> GetStudent()
         {
-            return new List<Student>();
-            
+            string dbConnection = _config.GetConnectionString("Database");
+            Console.WriteLine($"We are connecting to...{dbConnection}");
+            return new List<Student>() {
+            new Student() { NameStudent = $"Mauricio" },
+            new Student() { NameStudent = $"Pedro" },
+            new Student() { NameStudent = $"Camii" }
+            };
+
         }
         [HttpPost]
         public Student CreateStudent([FromBody] string studentName)
