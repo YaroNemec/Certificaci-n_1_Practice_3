@@ -2,7 +2,6 @@ Practica 3: Creacion de una WebAPI
 
 Version: O.O 
 
-Working in StartUp
+Se terminó la practicá, con cada uno de los puntos
 
 ActualBranch: Develop
-Working in P3-006
