@@ -23,6 +23,15 @@ namespace Practice_3.Controllers
             _logger = logger;
         }
 
+        [HttpPost]
+        public Student CreateStudent([FromBody] string studentName)
+        {
+            return new Student()
+            {
+                NameStudent = studentName
+            };
+        }
+
         [HttpPut]
         public Student UpdateStudent([FromBody] Student estudiante)
         {
